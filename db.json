@@ -1,0 +1,10 @@
+{
+  "recipes": [
+    {
+      "id": 1,
+      "title": "Spaghetti Carbonara",
+      "description": "A creamy and delicious Italian pasta dish.",
+      "thumbnail": "https://via.placeholder.com/150?text=Carbonara"
+    }
+  ]
+}
