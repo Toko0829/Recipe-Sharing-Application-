@@ -2,9 +2,49 @@
   "recipes": [
     {
       "id": 1,
+      "title": "Homemade Margherita Pizza",
+      "description": "A simple and classic Italian pizza with fresh mozzarella, basil, and tomato sauce.",
+      "ingredients": [
+        "2 cups all-purpose flour",
+        "1 tsp active dry yeast",
+        "1/2 tsp salt",
+        "3/4 cup warm water",
+        "1 tbsp olive oil",
+        "1/2 cup tomato sauce",
+        "1 cup fresh mozzarella, sliced",
+        "Fresh basil leaves"
+      ],
+      "instructions": [
+        "In a bowl, mix flour, yeast, salt, warm water, and olive oil to form a dough.",
+        "Let the dough rise for 1 hour.",
+        "Roll out the dough on a floured surface.",
+        "Spread tomato sauce evenly on the dough.",
+        "Add mozzarella slices on top.",
+        "Bake at 220°C (430°F) for 12-15 minutes.",
+        "Garnish with fresh basil and serve hot."
+      ],
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsCa96ux1qAa5_IdeF3rrfBJ9PfF_hrI1rlA&s"
+    },
+    {
+      "id": 2,
       "title": "Spaghetti Carbonara",
-      "description": "A creamy and delicious Italian pasta dish.",
-      "thumbnail": "https://static01.nyt.com/images/2021/02/14/dining/carbonara-horizontal/carbonara-horizontal-videoSixteenByNineJumbo1600-v2.jpg"
+      "description": "Creamy pasta with eggs, cheese, pancetta, and pepper.",
+      "ingredients": [
+        "200g spaghetti",
+        "100g pancetta",
+        "2 large eggs",
+        "50g pecorino cheese",
+        "Freshly ground black pepper",
+        "Salt"
+      ],
+      "instructions": [
+        "Cook spaghetti in salted water until al dente.",
+        "Fry pancetta until crispy.",
+        "Beat eggs and mix with grated cheese.",
+        "Drain pasta and quickly toss with pancetta and egg mixture.",
+        "Season with black pepper and serve immediately."
+      ],
+      "thumbnail": "https://www.allrecipes.com/thmb/Vg2cRidr2zcYhWGvPD8M18xM_WY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/11973-spaghetti-carbonara-ii-DDMFS-4x3-6edea51e421e4457ac0c3269f3be5157.jpg"
     }
   ]
 }

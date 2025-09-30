@@ -1,28 +1,54 @@
 <div class="container">
-  <form>
+  <form [formGroup]="recipeForm">
     <div class="row mb-3">
-      <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
+      <label for="inputTitle" class="col-sm-2 col-form-label">Title</label>
       <div class="col-sm-10">
-        <input type="email" class="form-control" id="inputEmail3" />
+        <input
+          type="text"
+          class="form-control"
+          id="inputTitle"
+          formControlName="title"
+        />
       </div>
     </div>
     <div class="row mb-3">
-      <label for="inputPassword3" class="col-sm-2 col-form-label"
+      <label for="inputDescription" class="col-sm-2 col-form-label"
         >Description</label
       >
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputPassword3" />
+        <input
+          type="text"
+          class="form-control"
+          id="inputDescription"
+          formControlName="description"
+        />
       </div>
     </div>
     <div class="row mb-3">
-      <label for="inputPassword3" class="col-sm-2 col-form-label"
-        >Image Link</label
-      >
+      <label for="inputImage" class="col-sm-2 col-form-label">Image Link</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputPassword3" />
+        <input
+          type="text"
+          class="form-control"
+          id="inputImage"
+          formControlName="thumbnail"
+        />
       </div>
     </div>
-
-    <button type="submit" class="btn btn-primary">Add Recipe</button>
+    <button
+      type="submit"
+      (click)="addRecipe()"
+      [disabled]="recipeForm.invalid"
+      class="btn btn-primary"
+    >
+      Add Recipe
+    </button>
   </form>
+  @if (this.recipeForm.invalid && this.recipeForm.controls['title'].touched ||
+  this.recipeForm.controls['description'].touched ||
+  this.recipeForm.controls['thumbnail'].touched ) {
+  <span class="text-danger position-absolute top-10 start-50 translate-middle"
+    >Please fill out the entire form.</span
+  >
+  }
 </div>

@@ -13,4 +13,8 @@ export class MasterService {
   getRecipes(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}recipes`);
   }
+
+  addRecipes(recipes: any): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}recipes`, recipes);
+  }
 }
