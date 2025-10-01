@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Recipe } from './recipes.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -10,11 +11,11 @@ export class MasterService {
 
   constructor(private http: HttpClient) {}
 
-  getRecipes(): Observable<any[]> {
+  getRecipes(): Observable<Recipe[]> {
     return this.http.get<any[]>(`${this.baseUrl}recipes`);
   }
 
-  addRecipes(recipes: any): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}recipes`, recipes);
+  addRecipes(recipes: Recipe): Observable<any> {
+    return this.http.post<Recipe>(`${this.baseUrl}recipes`, recipes);
   }
 }
