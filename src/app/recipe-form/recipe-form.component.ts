@@ -21,6 +21,8 @@ export class RecipeFormComponent {
       title: ['', Validators.required],
       description: ['', Validators.required],
       thumbnail: ['', Validators.required],
+      ingredients: ['', Validators.required],
+      instructions: ['', Validators.required],
     });
   }
 

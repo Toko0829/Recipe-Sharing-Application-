@@ -1,4 +1,7 @@
 <div class="container">
+  <div class="d-flex justify-content-center align-items-center">
+    <h1 class="text-primary">Add Recipes</h1>
+  </div>
   <form [formGroup]="recipeForm">
     <div class="row mb-3">
       <label for="inputTitle" class="col-sm-2 col-form-label">Title</label>
@@ -25,6 +28,32 @@
       </div>
     </div>
     <div class="row mb-3">
+      <label for="inputIngredients" class="col-sm-2 col-form-label"
+        >ingredients</label
+      >
+      <div class="col-sm-10">
+        <input
+          type="text"
+          class="form-control"
+          id="inputIngredients"
+          formControlName="ingredients"
+        />
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="inputInstructions" class="col-sm-2 col-form-label"
+        >instructions</label
+      >
+      <div class="col-sm-10">
+        <input
+          type="text"
+          class="form-control"
+          id="inputImage"
+          formControlName="instructions"
+        />
+      </div>
+    </div>
+    <div class="row mb-3">
       <label for="inputImage" class="col-sm-2 col-form-label">Image Link</label>
       <div class="col-sm-10">
         <input
@@ -44,11 +73,12 @@
       Add Recipe
     </button>
   </form>
+
   @if (this.recipeForm.invalid && this.recipeForm.controls['title'].touched ||
   this.recipeForm.controls['description'].touched ||
   this.recipeForm.controls['thumbnail'].touched ) {
-  <span class="text-danger position-absolute top-10 start-50 translate-middle"
-    >Please fill out the entire form.</span
-  >
+  <div class="d-flex justify-content-center align-items-center">
+    <span class="text-danger">Please fill out the entire form.</span>
+  </div>
   }
 </div>

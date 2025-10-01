@@ -1,0 +1,22 @@
+<div class="container text-center">
+  <div class="row justify-content-center">
+    @for (recipe of recipes; track recipe.id) {
+    <div class="col-md-4 mb-4 d-flex justify-content-center">
+      <div class="card h-100 d-flex flex-column" style="width: 18rem">
+        <img
+          [src]="recipe.thumbnail"
+          class="card-img-top fixed-img"
+          alt="..."
+        />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ recipe.title }}</h5>
+          <p class="card-text flex-grow-1">
+            {{ recipe.description }}
+          </p>
+          <a href="#" class="btn btn-primary mt-auto">Check Recipe</a>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>
