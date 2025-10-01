@@ -18,4 +18,8 @@ export class MasterService {
   addRecipes(recipes: Recipe): Observable<any> {
     return this.http.post<Recipe>(`${this.baseUrl}recipes`, recipes);
   }
+
+  getRecipeById(id: any): Observable<Recipe> {
+    return this.http.get<Recipe>(`${this.baseUrl}recipes/${id}`);
+  }
 }

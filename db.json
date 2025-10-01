@@ -1,7 +1,7 @@
 {
   "recipes": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Homemade Margherita Pizza",
       "description": "A simple and classic Italian pizza with fresh mozzarella, basil, and tomato sauce.",
       "ingredients": [
@@ -26,7 +26,7 @@
       "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsCa96ux1qAa5_IdeF3rrfBJ9PfF_hrI1rlA&s"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Spaghetti Carbonara",
       "description": "Creamy pasta with eggs, cheese, pancetta, and pepper.",
       "ingredients": [
