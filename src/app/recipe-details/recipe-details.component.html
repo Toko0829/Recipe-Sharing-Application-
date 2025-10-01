@@ -1,1 +1,28 @@
-{{ recipes?.title }}
+<div class="container-fluid p-0">
+  <div class="card mb-3 w-100 h-100">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img
+          [src]="recipes?.thumbnail"
+          class="img-fluid rounded-start w-100 h-100"
+          alt="..."
+          style="object-fit: cover"
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ recipes?.title }}</h5>
+          <p class="card-text">{{ recipes?.description }}</p>
+          <p class="card-text">
+            <strong>Instructions</strong> {{ recipes?.instructions }}
+          </p>
+          <p class="card-text">
+            <small class="text-body-secondary">
+              <strong>Ingredients:</strong> {{ recipes?.ingredients }}
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
