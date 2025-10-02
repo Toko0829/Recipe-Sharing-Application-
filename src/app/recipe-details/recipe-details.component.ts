@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { MasterService } from '../master.service';
 import { Recipe } from '../recipes.interface';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RecipeModalComponent } from '../recipe-modal/recipe-modal.component';
 
 @Component({
@@ -17,7 +17,8 @@ export class RecipeDetailsComponent {
 
   constructor(
     private masterService: MasterService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -32,6 +33,7 @@ export class RecipeDetailsComponent {
       .deleteRecipe(this.recipes!.id)
       .subscribe((response) => {
         console.log(response);
+        return this.router.navigate(['/']);
       });
   }
 

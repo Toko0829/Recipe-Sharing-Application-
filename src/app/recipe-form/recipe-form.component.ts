@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MasterService } from '../master.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-form',
@@ -16,7 +17,11 @@ import { MasterService } from '../master.service';
 export class RecipeFormComponent {
   recipeForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private masterService: MasterService) {
+  constructor(
+    private fb: FormBuilder,
+    private masterService: MasterService,
+    private router: Router
+  ) {
     this.recipeForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
@@ -41,6 +46,7 @@ export class RecipeFormComponent {
 
     return this.masterService.addRecipes(recipeToSend).subscribe((response) => {
       console.log(response);
+      return this.router.navigate(['/']);
     });
   }
 }
