@@ -21,6 +21,13 @@
               <strong>Ingredients:</strong> {{ recipes?.ingredients }}
             </small>
           </p>
+
+          <div class="container-fluid p-0">
+            <button class="btn btn-danger mx-1" (click)="delete()">
+              Delete
+            </button>
+            <button class="btn btn-warning" (click)="delete()">Edit</button>
+          </div>
         </div>
       </div>
     </div>

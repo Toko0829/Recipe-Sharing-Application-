@@ -22,4 +22,8 @@ export class MasterService {
   getRecipeById(id: any): Observable<Recipe> {
     return this.http.get<Recipe>(`${this.baseUrl}recipes/${id}`);
   }
+
+  deleteElement(id: any): Observable<Recipe> {
+    return this.http.delete<Recipe>(`${this.baseUrl}recipes/${id}`);
+  }
 }
