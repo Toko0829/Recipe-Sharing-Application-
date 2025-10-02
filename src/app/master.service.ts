@@ -23,7 +23,11 @@ export class MasterService {
     return this.http.get<Recipe>(`${this.baseUrl}recipes/${id}`);
   }
 
-  deleteElement(id: any): Observable<Recipe> {
+  deleteRecipe(id: any): Observable<Recipe> {
     return this.http.delete<Recipe>(`${this.baseUrl}recipes/${id}`);
+  }
+
+  editRecipe(id: number, updateRecipe: Recipe): Observable<Recipe> {
+    return this.http.put<Recipe>(`${this.baseUrl}recipes/${id}`, updateRecipe);
   }
 }

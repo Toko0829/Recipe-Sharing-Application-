@@ -23,13 +23,21 @@
           </p>
 
           <div class="container-fluid p-0">
-            <button class="btn btn-danger mx-1" (click)="delete()">
+            <button class="btn btn-danger mx-1" (click)="deleteRecipe()">
               Delete
             </button>
-            <button class="btn btn-warning" (click)="delete()">Edit</button>
+            <button class="btn btn-warning" (click)="openModal()">Edit</button>
           </div>
         </div>
       </div>
     </div>
   </div>
+  @if (modal) {
+  <app-recipe-modal
+    [recipe]="currentRecipe"
+    (submit)="onModalSubmit($event)"
+    (close)="onModalClose()"
+  ></app-recipe-modal>
+
+  }
 </div>
