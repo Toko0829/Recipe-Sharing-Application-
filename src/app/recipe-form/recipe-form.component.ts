@@ -27,10 +27,20 @@ export class RecipeFormComponent {
   }
 
   addRecipe() {
-    return this.masterService
-      .addRecipes(this.recipeForm.value)
-      .subscribe((response) => {
-        console.log(response);
-      });
+    const formValue = this.recipeForm.value;
+
+    const ingredientsArray = formValue.ingredients
+      .split(',')
+      .map((item: string) => item.trim())
+      .filter((item: string) => item.length > 0);
+
+    const recipeToSend = {
+      ...formValue,
+      ingredients: ingredientsArray,
+    };
+
+    return this.masterService.addRecipes(recipeToSend).subscribe((response) => {
+      console.log(response);
+    });
   }
 }
