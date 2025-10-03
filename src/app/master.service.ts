@@ -30,4 +30,10 @@ export class MasterService {
   editRecipe(id: number, updateRecipe: Recipe): Observable<Recipe> {
     return this.http.put<Recipe>(`${this.baseUrl}recipes/${id}`, updateRecipe);
   }
+
+  markAsFavorite(id: number) {
+    return this.http.patch<Recipe>(`${this.baseUrl}recipes/${id}`, {
+      isFavorite: true,
+    });
+  }
 }

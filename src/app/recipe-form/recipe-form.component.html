@@ -74,9 +74,11 @@
     </button>
   </form>
 
-  @if (this.recipeForm.invalid && this.recipeForm.controls['title'].touched ||
+  @if (this.recipeForm.invalid && ( this.recipeForm.controls['title'].touched ||
   this.recipeForm.controls['description'].touched ||
-  this.recipeForm.controls['thumbnail'].touched ) {
+  this.recipeForm.controls['thumbnail'].touched ||
+  this.recipeForm.controls['ingredients'].touched ||
+  this.recipeForm.controls['instructions'].touched )) {
   <div class="d-flex justify-content-center align-items-center">
     <span class="text-danger">Please fill out the entire form.</span>
   </div>

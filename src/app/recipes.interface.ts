@@ -5,4 +5,5 @@ export interface Recipe {
   ingredients: string[];
   instructions: string;
   thumbnail: string;
+  isFavorite?: boolean;
 }

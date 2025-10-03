@@ -15,6 +15,7 @@
       <app-recipe-card
         [recipe]="recipe"
         (viewRecipe)="viewRecipe($event)"
+        (toggleFavorite)="saveFavorite($event)"
       ></app-recipe-card>
     </div>
     }

@@ -5,6 +5,7 @@ import { Recipe } from '../recipes.interface';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { response } from 'express';
 
 @Component({
   selector: 'app-recipe-list',
@@ -40,5 +41,11 @@ export class RecipeListComponent {
     );
     console.log(filteredData);
     this.recipes = filteredData;
+  }
+
+  saveFavorite(recipe: Recipe) {
+    this.masterService.markAsFavorite(recipe.id).subscribe((response) => {
+      console.log('Marked As Favorite', response);
+    });
   }
 }

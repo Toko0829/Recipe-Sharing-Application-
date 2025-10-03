@@ -10,8 +10,13 @@ import { Recipe } from '../recipes.interface';
 export class RecipeCardComponent {
   @Input() recipe!: Recipe;
   @Output() viewRecipe = new EventEmitter<Recipe>();
+  @Output() toggleFavorite = new EventEmitter<Recipe>();
 
   details() {
     this.viewRecipe.emit(this.recipe);
+  }
+
+  saveToFavorites() {
+    this.toggleFavorite.emit(this.recipe);
   }
 }
