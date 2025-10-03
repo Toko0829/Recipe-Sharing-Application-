@@ -1,16 +1,14 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { MasterService } from '../master.service';
 import { RecipeCardComponent } from '../recipe-card/recipe-card.component';
 import { Recipe } from '../recipes.interface';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { response } from 'express';
-import { FavoritesComponent } from '../favorites/favorites.component';
 
 @Component({
   selector: 'app-recipe-list',
-  imports: [RecipeCardComponent, CommonModule, FormsModule, FavoritesComponent],
+  imports: [RecipeCardComponent, CommonModule, FormsModule],
   templateUrl: './recipe-list.component.html',
   styleUrl: './recipe-list.component.css',
 })
@@ -20,7 +18,11 @@ export class RecipeListComponent {
   searchInput: string = '';
   filterFavorites: boolean = false;
 
-  constructor(private masterService: MasterService, private router: Router) {}
+  constructor(
+    private masterService: MasterService,
+    private router: Router,
+    private cd: ChangeDetectorRef
+  ) {}
 
   ngOnInit() {
     return this.masterService.getRecipes().subscribe((data) => {
@@ -40,6 +42,10 @@ export class RecipeListComponent {
   saveFavorite(recipe: Recipe) {
     this.masterService.markAsFavorite(recipe.id).subscribe((response) => {
       console.log('Marked As Favorite', response);
+
+      recipe.isFavorite = !recipe.isFavorite;
+
+      this.applyFilters();
     });
   }
 
@@ -59,5 +65,6 @@ export class RecipeListComponent {
 
       return matchesSearch && matchesFavorite;
     });
+    this.cd.detectChanges();
   }
 }

@@ -16,7 +16,7 @@
       ],
       "instructions": "In a bowl, mix flour, yeast, salt, warm water, and olive oil to form a dough. Let the dough rise for 1 hour. Roll out the dough on a floured surface. Spread tomato sauce evenly on the dough. Add mozzarella slices on top. Bake at 220°C (430°F) for 12-15 minutes. Garnish with fresh basil and serve hot.",
       "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsCa96ux1qAa5_IdeF3rrfBJ9PfF_hrI1rlA&s",
-      "isFavorite": true
+      "isFavorite": false
     },
     {
       "id": "2",
@@ -49,7 +49,7 @@
       ],
       "instructions": "Season chicken breasts with salt and pepper, then grill until fully cooked and golden brown. Slice the chicken into strips. In a large bowl, combine chopped romaine lettuce, croutons, and Parmesan. Add the grilled chicken on top and drizzle with Caesar dressing. Toss gently before serving.",
       "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqSRxye2TDzRDi_QOgeILnJMO6U3cEWJw6Fw&s",
-      "isFavorite": false
+      "isFavorite": true
     }
   ]
 }
