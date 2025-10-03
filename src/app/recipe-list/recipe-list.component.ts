@@ -6,10 +6,11 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { response } from 'express';
+import { FavoritesComponent } from '../favorites/favorites.component';
 
 @Component({
   selector: 'app-recipe-list',
-  imports: [RecipeCardComponent, CommonModule, FormsModule],
+  imports: [RecipeCardComponent, CommonModule, FormsModule, FavoritesComponent],
   templateUrl: './recipe-list.component.html',
   styleUrl: './recipe-list.component.css',
 })
@@ -17,6 +18,7 @@ export class RecipeListComponent {
   recipes: Recipe[] = [];
   filteredRecipes: Recipe[] = [];
   searchInput: string = '';
+  filterFavorites: boolean = false;
 
   constructor(private masterService: MasterService, private router: Router) {}
 
@@ -32,20 +34,30 @@ export class RecipeListComponent {
   }
 
   searchRecipe() {
-    const query = this.searchInput.toLowerCase();
-
-    const filteredData = this.filteredRecipes.filter(
-      (recipe) =>
-        recipe.title.toLowerCase().includes(query) ||
-        recipe.ingredients.join(' ').toLowerCase().includes(query)
-    );
-    console.log(filteredData);
-    this.recipes = filteredData;
+    this.applyFilters();
   }
 
   saveFavorite(recipe: Recipe) {
     this.masterService.markAsFavorite(recipe.id).subscribe((response) => {
       console.log('Marked As Favorite', response);
+    });
+  }
+
+  toggleFavoriteFilter() {
+    this.applyFilters();
+  }
+
+  applyFilters() {
+    const search = this.searchInput?.toLowerCase() || '';
+
+    this.recipes = this.filteredRecipes.filter((recipe) => {
+      const matchesSearch =
+        recipe.title.toLowerCase().includes(search) ||
+        recipe.ingredients.some((ing) => ing.toLowerCase().includes(search));
+
+      const matchesFavorite = !this.filterFavorites || recipe.isFavorite;
+
+      return matchesSearch && matchesFavorite;
     });
   }
 }

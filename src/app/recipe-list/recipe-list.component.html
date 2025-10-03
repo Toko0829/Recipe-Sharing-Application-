@@ -1,23 +1,42 @@
 <div class="container text-center">
   <div class="mb-3">
-    <input
-      type="text"
-      class="form-control border border-primary"
-      id="searchInput"
-      placeholder="Search by recipe name or ingredients..."
-      [(ngModel)]="searchInput"
-      (input)="searchRecipe()"
-    />
-  </div>
-  <div class="row justify-content-center">
-    @for (recipe of recipes; track recipe.id) {
-    <div class="col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center">
-      <app-recipe-card
-        [recipe]="recipe"
-        (viewRecipe)="viewRecipe($event)"
-        (toggleFavorite)="saveFavorite($event)"
-      ></app-recipe-card>
+    <div class="input-group">
+      <input
+        type="text"
+        class="form-control border border-primary"
+        id="searchInput"
+        placeholder="Search by recipe name or ingredients..."
+        [(ngModel)]="searchInput"
+        (input)="searchRecipe()"
+      />
+      <div class="input-group-text">
+        <input
+          type="checkbox"
+          class="form-check-input mt-0 me-2"
+          [(ngModel)]="filterFavorites"
+          (change)="applyFilters()"
+          id="favoritesCheckbox"
+        />
+        <label for="favoritesCheckbox" class="form-check-label mb-0"
+          >Favorites only</label
+        >
+      </div>
     </div>
-    }
+
+    <div class="row justify-content-center">
+      @for (recipe of recipes; track recipe.id) {
+      <div
+        class="col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center"
+      >
+        <app-recipe-card
+          [recipe]="recipe"
+          (viewRecipe)="viewRecipe($event)"
+          (toggleFavorite)="saveFavorite($event)"
+        ></app-recipe-card>
+      </div>
+      }
+    </div>
+
+    <app-favorites></app-favorites>
   </div>
 </div>
