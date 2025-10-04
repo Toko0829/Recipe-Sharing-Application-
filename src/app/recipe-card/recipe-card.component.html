@@ -8,8 +8,8 @@
     <h5 class="card-title">{{ recipe.title }}</h5>
     <p class="card-text flex-grow-1">{{ recipe.description }}</p>
     <a class="btn btn-primary mt-auto" (click)="details()">Check Recipe</a>
-    <a class="btn btn-warning mt-1" (click)="saveToFavorites()"
-      >Add To Favorites</a
-    >
+    <a class="btn btn-warning mt-1" (click)="saveToFavorites()">{{
+      recipe.isFavorite ? "Remove from Favorites" : "Add to Favorites"
+    }}</a>
   </div>
 </div>

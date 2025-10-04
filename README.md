@@ -1,59 +1,86 @@
-# RecipeSharing
+# 📋 Recipe Sharing App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.14.
+This is a simple yet functional Angular application for managing and sharing recipes. It supports adding, editing, viewing, and marking recipes as favorites. It uses `json-server` for mock backend data and is styled using Bootstrap.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Getting Started
+
+### 🔧 Installation
+
+1. **Clone the repository:**
 
 ```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+Install dependencies:
+
+bash
+Copy code
+npm install
+Start JSON Server:
+
+bash
+Copy code
+json-server --watch db.json
+Runs the mock backend at http://localhost:3000.
+
+Run Angular App:
+
+bash
+Copy code
 ng serve
+Visit http://localhost:4200 in your browser.
+
+📁 Project Structure
+graphql
+Copy code
+src/
+├── app/
+│   ├── recipe-list/         # Displays list of recipes
+│   ├── recipe-card/         # Card component for individual recipe
+│   ├── favorites/           # Section for favorite recipes
+│   ├── page-not-found/      # 404 page for invalid routes
+│   ├── app.component.ts     # Root component
+│   ├── master.service.ts    # Shared service for HTTP calls
+│   ├── recipes.interface.ts # Recipe model interface
+├── assets/
+│   └── ...                  # Static assets
+├── db.json                  # Mock backend database
+└── ...
+🧰 Key Angular Features Used
+✅ Reactive Forms
+Used to manage forms for creating and editing recipes.
+
+ts
+Copy code
+import { ReactiveFormsModule } from '@angular/forms';
+📤📥 Input and Output Decorators
+Used for parent-child communication, such as passing data to recipe cards and handling events like viewing or favoriting a recipe.
+
+ts
+Copy code
+@Input() recipe!: Recipe;
+@Output() viewRecipe = new EventEmitter<Recipe>();
+@Output() toggleFavorite = new EventEmitter<Recipe>();
+♻️ Change Detection
+Used ChangeDetectionStrategy.OnPush to improve UI performance and reduce unnecessary DOM updates (if applied).
+
+💉 Dependency Injection
+Services like MasterService are injected into components to handle API requests and business logic.
+
+🎨 Styling
+The application uses Bootstrap 5 for UI layout and styling. This ensures responsive design and quick styling of components like cards, buttons, forms, and layout grids.
+
+✨ Features
+Add new recipes with validation
+
+Edit and delete existing recipes
+
+Mark/unmark recipes as favorites
+
+Filter recipes by favorites
+
+JSON-server backend for fast prototyping
+
 ```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
