@@ -19,6 +19,8 @@ Run Angular App:
 ng serve
 Visit http://localhost:4200 in your browser.
 
+```bash
+
 📁 Project Structure
 src/
 ├── app/
@@ -33,6 +35,9 @@ src/
 │ └── ... # Static assets
 ├── db.json # Mock backend database
 └── ...
+
+```
+
 🧰 Key Angular Features Used
 ✅ Reactive Forms
 Used to manage forms for creating and editing recipes.
